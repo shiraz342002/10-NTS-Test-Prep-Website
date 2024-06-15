@@ -6,12 +6,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-body {
-
-    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+body{
+    color: white;
+    background-color: #09001d;
 }
-
 .header {
     position: fixed;
     background-color: rgb(230, 231, 226);
@@ -63,14 +61,25 @@ body {
 }
 
 .container {
-    margin-top: 120px; /* to ensure content is not hidden behind the fixed header */
+    /* margin-top: 120px; */
+    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    background-size: cover;
+    background-position: center;
+    transition: .5s ease;
+    pointer-events: auto;
+}
+.container.active{
+    filter: blur(15px);
+    pointer-events: none;
 }
 .home{
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
+    position: relative;
+    bottom: 100px;
     
 }
 .home_content{
@@ -78,7 +87,7 @@ body {
 }
 .home_content h1{
     color: rgb(255, 255, 255);
-    font-size: 70px;
+    font-size: 50px;
     font-weight: 700;
     text-align: center;
     text-shadow: 0 0 10px rgba(0, 0, 0,.3);
@@ -87,7 +96,7 @@ body {
 }
 .home_content p{
     color: rgb(255, 255, 255);
-    font-size: 28px;
+    font-size: 18px;
     text-align: center;
     font-weight: 700;
     text-shadow: 0 0 10px rgba(0, 0, 0,.3);
@@ -95,18 +104,18 @@ body {
 .start_btn{
     text-align: center;
     justify-content: center;
-    font-size:26px;
+    font-size:20px;
     font-weight: 700;
     align-items: center;
-    padding: 23px;
-    width: 30%;
+    padding: 15px;
+    width: 20%;
     position: relative;
     left: 287px;
     top: 40px;
-    background-color: #fa5ad2;
+    background-color: #c40094;
     border: 2px solid #fff;
     outline: none;
-    box-shadow: 0 0 10px #fa5ad2 ;
+    box-shadow: 0 0 10px #c40094 ;
     color: white;
     letter-spacing: 1px;
     transition: 1s;
@@ -114,8 +123,113 @@ body {
 .start_btn:hover{
     background-color: black;
     box-shadow: none;
-    box-shadow: 6px 6px 10px #fa5ad2 ;
+    box-shadow: 6px 6px 10px #c40094 ;
     letter-spacing: 3px;
-    font-size: 30px;
+    font-size: 20px;
     
+}
+.quiz-info{
+ position: absolute;   
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%,-50%) scale(.9);
+ width: 760px;
+ /* background-image: linear-gradient(to top, #09203f 0%, #537895 100%); */
+ background-color: white;
+ border-radius: 6px;
+height: 500px;
+padding: 23px 23px;
+opacity: 0;
+pointer-events: none;
+transition: .5s;
+}
+.quiz-info.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%,-50%) scale(.9);
+}
+.quiz-info h1{
+    color:#c40094;
+    font-size: 70px;
+    font-weight: 800;
+    margin: 12px 12px;
+    
+}
+.quiz-info .info{
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+}
+.menu-btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top:  1px solid #999;
+    margin-top: 10px;
+}
+.two-btns{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 40px;
+    margin: 10px 10px;
+    border: 2px solid #c40094;
+    background-color: #c40094;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0,.1);
+    cursor: pointer;
+    padding: 23px;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.two-btns:hover{
+    background-color: black;
+    box-shadow: none;
+    box-shadow: 6px 6px 10px #fa5ad2 ;
+    letter-spacing: 1px;
+    font-size:  20px;
+}
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-links li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #F58634;
 }
