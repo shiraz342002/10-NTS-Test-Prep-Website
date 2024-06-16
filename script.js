@@ -38,6 +38,8 @@ next_button.onclick=()=>{
         // console.log(question_counter); //added for debugging
         display_question(question_counter);
         display_counter(question_counter2)
+        next_button.classList.remove('active')
+
     }
     else{
         console.log("Question finished");
@@ -69,8 +71,9 @@ function display_counter(index){
 }
 function Option_Selected(user_ans) {
     let user_answer = user_ans.textContent.trim();
-    let cor_answer = questions[question_counter].answer.trim(); // Assuming question_counter is the current question index
+    let cor_answer = questions[question_counter].answer.trim();
     let cleaned_user_answer = removeOptionLabels(user_answer);
+    let all_options=option_list.children.length;
     
 
     // for debugging holy shit took me like an hour 
@@ -82,16 +85,23 @@ function Option_Selected(user_ans) {
     // console.log("Length of Correct Answer:", cor_answer.length);
 
     if (cleaned_user_answer === cor_answer) {
-        // console.log("Correct Answer!");
         user_score++;
-        user_ans.style.backgroundColor = "green";
-        // display_score.innerHTML=`Your Score: ${user_score} out of 100`
-        user_ans.classList.add('correct')
+        display_score.innerHTML = `Your Score: ${user_score}/100`;
+        user_ans.classList.add('correct');
     } else {
-        user_ans.classList.add('incorrect')
-        // console.log("Wrong Answer!");
-        // user_ans.style.backgroundColor = "red";
+        user_ans.classList.add('incorrect');
     }
+
+    // Highlight the correct answer and disable other options
+    for (let i = 0; i < all_options; i++) {
+        let option = option_list.children[i];
+        let option_text = removeOptionLabels(option.textContent.trim());
+        if (option_text === cor_answer) {
+            option.classList.add('correct');
+        }
+        option.classList.add('rest_disable');
+    }
+    next_button.classList.add('active')
 }
 function removeOptionLabels(answerWithLabel) {
     return answerWithLabel.replace(/^\(\w\)\s*/, '').trim();

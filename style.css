@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap');
 * {
     font-family: "Poppins", sans-serif;
     margin: 0;
@@ -114,7 +114,7 @@ body{
     padding: 15px;
     width: 20%;
     position: relative;
-    left: 287px;
+    left: 320px;
     top: 40px;
     background-color: #c40094;
     border: 2px solid #fff;
@@ -252,13 +252,27 @@ transition-delay: 1s;
     border-bottom: 4px solid #e5f31a;
 }
 .quiz_header span{
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 23px;
+    font-weight: 700;
+}
+.question_count{
+    background-color: #c40094;
+    border: 2px solid #fff;
+    outline: none;
+    box-shadow: 0 0 10px #c40094 ;
+    color: white;
+    letter-spacing: 1px;
+    transition: 1s;
+    padding: 16px;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 8px;
 }
 .header_score{
     background:#c40094;
     border-radius: 4px;
-    padding: 7px;
+    padding: 15px;
+   
     color:white;
 }
 .questions_text{
@@ -266,6 +280,11 @@ transition-delay: 1s;
     font-weight: 700;
     margin-top: 12px ;
    
+}
+#shiraz{
+    font-family: "Playwrite FR Moderne", cursive;
+    font-weight: 800;
+    font-size: 27px;
 }
 .options_list .option{
 width: 100%;
@@ -281,6 +300,9 @@ transition: .4s;
 .options_list .option.correct{
     background-color: rgb(121, 241, 52);
     background: rgb(121, 241, 52);
+}
+.options_list .option.rest_disable{
+    pointer-events: none;
 }
 .options_list .option.incorrect{
     background-color: red;
@@ -300,23 +322,24 @@ transition: .4s;
 }
 .question_count{
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 800;
 }
 .next_button{
-    background-color: #c40094;
     border: 2px solid #fff;
     outline: none;
-    box-shadow: 0 0 10px #c40094 ;
-    color: white;
+    pointer-events: none;
     letter-spacing: 1px;
-    transition: 1s;
+    transition: .5s;
     padding: 16px;
     font-size: 18px;
     margin-top: 10px;
     border-radius: 8px;
     /* pointer-events: none; */
+    background-color: rgb(255, 255, 255,.3);
+    color: white;
+
 }
-.next_button:hover{
+.next_button.active:hover{
     background-color: black;
     box-shadow: none;
     box-shadow: 6px 6px 10px #c40094 ;
@@ -324,7 +347,12 @@ transition: .4s;
     font-size: 20px;
     cursor: pointer;
 }
-
+.next_button.active{
+    pointer-events: auto;
+    background-color: #c40094;
+    color: white;
+    box-shadow: 0 0 10px #c40094 ;
+}
 
 
 
