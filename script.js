@@ -9,6 +9,8 @@ var next_button=document.querySelector('.next_button');
 var question_count_display=document.querySelector('.question_count')
 var option_list=document.querySelector('.options_list')
 var display_score=document.querySelector('.header_score');
+var result_box=document.querySelector('.quiz_result')
+var result_score=document.querySelector('.display_score')
 var question_counter2=1;
 var question_counter=0;  
 var user_score=0;
@@ -39,11 +41,9 @@ next_button.onclick=()=>{
         display_question(question_counter);
         display_counter(question_counter2)
         next_button.classList.remove('active')
-
     }
     else{
-        console.log("Question finished");
-        
+    display_Result();        
     }
     
 }
@@ -76,7 +76,8 @@ function Option_Selected(user_ans) {
     let all_options=option_list.children.length;
     
 
-    // for debugging holy shit took me like an hour 
+    // for debugging holy shit took me like an hou
+    // dont' mess up anything related to comparing it will break the code
 
     // console.log("Original User Answer:", user_answer);
     // console.log("Cleaned User Answer:", cleaned_user_answer);
@@ -86,7 +87,7 @@ function Option_Selected(user_ans) {
 
     if (cleaned_user_answer === cor_answer) {
         user_score++;
-        display_score.innerHTML = `Your Score: ${user_score}/100`;
+        display_score.innerHTML = `Your Score: ${user_score}/${questions.length}`;
         user_ans.classList.add('correct');
     } else {
         user_ans.classList.add('incorrect');
@@ -105,4 +106,22 @@ function Option_Selected(user_ans) {
 }
 function removeOptionLabels(answerWithLabel) {
     return answerWithLabel.replace(/^\(\w\)\s*/, '').trim();
+}
+function display_Result(){
+    result_box.classList.add('active')
+    quiz_box.classList.remove('active')
+    result_score.textContent=`Your Score is ${user_score} out of ${questions.length}`
+    var progress_bar=document.querySelector('.circular_progress')
+    var progress_value=document.querySelector('.prog_value');
+    var progress_start_val=0;
+    var progress_end_val=((user_score/questions.length)*100);
+    var speed=20;
+    let progress=setInterval(()=>{
+        progress_start_val++;
+        console.log(progress_start_val);
+        if(progress_start_val==progress_end_val){
+            clearInterval(progress)
+        }
+        
+    },speed)
 }
