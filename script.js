@@ -17,4 +17,5 @@ continue_button.onclick=()=>{
     quiz_info.classList.remove('active')
     container.classList.remove('active')
     quiz_section.classList.add('active')
+    
 }
