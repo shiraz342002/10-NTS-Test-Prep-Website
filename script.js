@@ -11,9 +11,12 @@ var option_list=document.querySelector('.options_list')
 var display_score=document.querySelector('.header_score');
 var result_box=document.querySelector('.quiz_result')
 var result_score=document.querySelector('.display_score')
+var try_again_button=document.querySelector('.try_again_btn')
+var go_home_button=document.querySelector('.go_home_btn')
 var question_counter2=1;
 var question_counter=0;  
 var user_score=0;
+var subject=document.querySelector('.subject')
 
 
 start_button.onclick=()=>{
@@ -32,14 +35,21 @@ continue_button.onclick=()=>{
     quiz_box.classList.add('active')
     display_question(0)
     display_counter(1)
+    display_score_on_top(user_score)
+
 }
 next_button.onclick=()=>{
     if(question_counter<questions.length-1){
         question_counter++;
         question_counter2++;
-        // console.log(question_counter); //added for debugging
         display_question(question_counter);
         display_counter(question_counter2)
+        if(question_counter>=20){
+            subject.innerHTML='Analytical'
+        }
+        else if(question_counter>=40){
+            subject.innerHTML='Quantitative'
+        }
         next_button.classList.remove('active')
     }
     else{
@@ -47,7 +57,25 @@ next_button.onclick=()=>{
     }
     
 }
+try_again_button.onclick=()=>{
+    result_box.classList.remove('active')
+    next_button.classList.remove('active')
+    quiz_box.classList.add('active')
+    user_score=0;
+    question_counter2=1;
+    question_counter=0;
+    display_question(question_counter)
+    display_counter(1)
+    display_score_on_top(user_score)
+    
+}
 
+go_home_button.onclick=()=>{
+    result_box.classList.remove('active')
+    quiz_box.classList.remove('active')
+    next_button.classList.remove('active')
+    quiz_section.classList.remove('active')
+}
 
 function display_question(index){
     var question_text=document.querySelector('.questions_text');
@@ -66,8 +94,11 @@ function display_question(index){
                        
 }
 function display_counter(index){
-    question_count_display.textContent=`${index} of 100 Questions`
+    question_count_display.textContent=`${index} of ${questions.length} Questions`
 
+}
+function display_score_on_top(user_score){
+    display_score.innerHTML = `Your Score: ${user_score}/${questions.length}`;
 }
 function Option_Selected(user_ans) {
     let user_answer = user_ans.textContent.trim();

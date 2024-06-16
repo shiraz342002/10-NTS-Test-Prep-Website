@@ -109,12 +109,12 @@ body{
     text-shadow: 0 0 10px rgba(0, 0, 0,.3);
 }
 .start_btn{
-    font-size:20px;
-    font-weight: 700;
-    padding: 15px;
-    width: 20%;
+    font-size:31px;
+    font-weight: 800;
+    padding: 23px;
+    width: 30%;
     position: relative;
-    left: 320px;
+    left: 275px;
     top: 40px;
     background-color: #c40094;
     border: 2px solid #fff;
@@ -261,8 +261,8 @@ transform: scale(1);
     color: white;
     letter-spacing: 1px;
     transition: 1s;
-    padding: 16px;
-    font-size: 18px;
+    padding: 14px;
+    font-size: 28px;
     margin-top: 10px;
     border-radius: 8px;
 }
@@ -274,8 +274,8 @@ transform: scale(1);
     color:white;
 }
 .questions_text{
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 23px;
+    font-weight: 600;
     margin-top: 12px ;
    
 }
@@ -319,7 +319,7 @@ transition: .4s;
     padding-top: 20px;
 }
 .question_count{
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 800;
 }
 .next_button{
