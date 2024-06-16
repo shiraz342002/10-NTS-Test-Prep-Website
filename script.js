@@ -8,10 +8,11 @@ var quiz_box=document.querySelector('.quiz-box');
 var next_button=document.querySelector('.next_button');
 var question_count_display=document.querySelector('.question_count')
 var option_list=document.querySelector('.options_list')
-var option=document.querySelectorAll('.option');
-
-var question_counter=0;  
+var display_score=document.querySelector('.header_score');
 var question_counter2=1;
+var question_counter=0;  
+var user_score=0;
+
 
 start_button.onclick=()=>{
     quiz_info.classList.add('active')
@@ -49,19 +50,49 @@ next_button.onclick=()=>{
 function display_question(index){
     var question_text=document.querySelector('.questions_text');
     question_text.textContent=`${questions[index].q_num}. ${questions[index].question}`
-    var option_view = `<div class="option"> <span>(A) ${questions[index].options[0]}</span> </div>
-    <div class="option"> <span>(B) ${questions[index].options[1]}</span> </div>
-    <div class="option"> <span>(C) ${questions[index].options[2]}</span> </div>
-    <div class="option"> <span>(D) ${questions[index].options[3]}</span> </div>`;
+    var optionLabels = ['(A)', '(B)', '(C)', '(D)'];
+    var option_view = `<div class="option"> <span>${optionLabels[0]} ${questions[index].options[0]}</span> </div>
+    <div class="option"> <span>${optionLabels[1]} ${questions[index].options[1]}</span> </div>
+    <div class="option"> <span>${optionLabels[2]} ${questions[index].options[2]}</span> </div>
+    <div class="option"> <span>${optionLabels[3]} ${questions[index].options[3]}</span> </div>`;
     option_list.innerHTML=option_view;
-                           
+    var option=document.querySelectorAll('.option');
+    for (let i = 0; i <option.length; i++) {
+        option[i].setAttribute('onclick','Option_Selected(this)');
+    }
+                       
                        
 }
 function display_counter(index){
     question_count_display.textContent=`${index} of 100 Questions`
 
 }
-for (let i = 0; i <option.length; i++) {
-    option[i].setAttribute('onclick','Option_Selected(this)');
-}
+function Option_Selected(user_ans) {
+    let user_answer = user_ans.textContent.trim();
+    let cor_answer = questions[question_counter].answer.trim(); // Assuming question_counter is the current question index
+    let cleaned_user_answer = removeOptionLabels(user_answer);
     
+
+    // for debugging holy shit took me like an hour 
+
+    // console.log("Original User Answer:", user_answer);
+    // console.log("Cleaned User Answer:", cleaned_user_answer);
+    // console.log("Correct Answer:", cor_answer);
+    // console.log("Length of Cleaned User Answer:", cleaned_user_answer.length);
+    // console.log("Length of Correct Answer:", cor_answer.length);
+
+    if (cleaned_user_answer === cor_answer) {
+        // console.log("Correct Answer!");
+        user_score++;
+        user_ans.style.backgroundColor = "green";
+        // display_score.innerHTML=`Your Score: ${user_score} out of 100`
+        user_ans.classList.add('correct')
+    } else {
+        user_ans.classList.add('incorrect')
+        // console.log("Wrong Answer!");
+        // user_ans.style.backgroundColor = "red";
+    }
+}
+function removeOptionLabels(answerWithLabel) {
+    return answerWithLabel.replace(/^\(\w\)\s*/, '').trim();
+}

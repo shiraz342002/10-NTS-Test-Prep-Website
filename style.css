@@ -272,11 +272,19 @@ width: 100%;
 padding: 12px;
 border: 4px solid rgb(255, 255, 255,.2);
 border-radius: 5px;
-font-size: 18px;
+font-size: 21px;
 font-weight: 600;
 margin: 12px 0;
 cursor: pointer;
 transition: .4s;
+}
+.options_list .option.correct{
+    background-color: rgb(121, 241, 52);
+    background: rgb(121, 241, 52);
+}
+.options_list .option.incorrect{
+    background-color: red;
+    background: red;
 }
 .option:hover{
     background: rgb(255, 255, 255,.1);

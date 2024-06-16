@@ -1,36 +1,37 @@
 let questions = [
     // Sentence Completion (5 questions)
     {
-        q_num: 1,
-        question: "She was so tired that she could hardly ______.",
-        answer: "walk",
-        options: ["walk", "walking", "wolk", "walked"]
+    q_num: 1,
+    question: "She was so tired that she could hardly ______.",
+    answer: "walk",
+    options: ["walk", "walking", "walks", "walked"]
     },
     {
-        q_num: 2,
-        question: "If I ______ a bird, I would fly high in the sky.",
-        answer: "were",
-        options: ["am", "was", "were", "being"]
+    q_num: 2,
+    question: "If I ______ a bird, I would fly high in the sky.",
+    answer: "were",
+    options: ["am", "was", "were", "being"]
     },
     {
-        q_num: 3,
-        question: "He decided to take a shortcut to avoid ______ late.",
-        answer: "being",
-        options: ["being", "to be", "been", "be"]
+    q_num: 3,
+    question: "He decided to take a shortcut to avoid ______ late.",
+    answer: "being",
+    options: ["being", "to be", "been", "be"]
     },
     {
-        q_num: 4,
-        question: "She bought a new dress ______ it was on sale.",
-        answer: "because",
-        options: ["but", "because", "although", "despite"]
+    q_num: 4,
+    question: "She bought a new dress ______ it was on sale.",
+    answer: "because",
+    options: ["but", "because", "although", "despite"]
     },
     {
-        q_num: 5,
-        question: "He speaks English as if he ______ a native speaker.",
-        answer: "were",
-        options: ["is", "was", "were", "being"]
+    q_num: 5,
+    question: "He speaks English as if he ______ a native speaker.",
+    answer: "were",
+    options: ["is", "was", "were", "being"]
     },
     
+ 
     // Analogy (3 questions)
     {
         q_num: 6,
@@ -155,4 +156,4 @@ let questions = [
         answer: "Climb",
         options: ["Descend", "Rise", "Climb", "Lift"]
     }
-];
+]
