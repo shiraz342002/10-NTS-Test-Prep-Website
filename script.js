@@ -47,8 +47,23 @@ next_button.onclick=()=>{
         if(question_counter>=20){
             subject.innerHTML='Analytical'
         }
-        else if(question_counter>=40){
+        if(question_counter>=40){
             subject.innerHTML='Quantitative'
+        }
+        if(question_counter>=70){
+            subject.innerHTML=''
+        }
+        if(question_counter>=60){
+            subject.innerHTML='Physics'
+        }
+        if(question_counter>=70){
+            subject.innerHTML='Chemistry'
+        }
+        if(question_counter>=80){
+            subject.innerHTML='Mathamatics'
+        }
+        if(question_counter>=90){
+            subject.innerHTML='Computer Science'
         }
         next_button.classList.remove('active')
     }
