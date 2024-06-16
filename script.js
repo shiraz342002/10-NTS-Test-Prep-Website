@@ -111,14 +111,17 @@ function display_Result(){
     result_box.classList.add('active')
     quiz_box.classList.remove('active')
     result_score.textContent=`Your Score is ${user_score} out of ${questions.length}`
+
     var progress_bar=document.querySelector('.circular_progress')
     var progress_value=document.querySelector('.prog_value');
-    var progress_start_val=0;
-    var progress_end_val=((user_score/questions.length)*100);
+    var progress_start_val=-1;
+    var progress_end_val=(user_score/questions.length)*100;
+    console.log(progress_end_val);
     var speed=20;
     let progress=setInterval(()=>{
         progress_start_val++;
-        console.log(progress_start_val);
+        progress_value.textContent = `${Math.round(progress_start_val)}%`;
+        progress_bar.style.background = `conic-gradient(#e5f31a ${progress_start_val * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
         if(progress_start_val==progress_end_val){
             clearInterval(progress)
         }

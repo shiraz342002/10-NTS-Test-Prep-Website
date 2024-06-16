@@ -18,18 +18,18 @@ let questions = [
     answer: "being",
     options: ["being", "to be", "been", "be"]
     },
-    // {
-    // q_num: 4,
-    // question: "She bought a new dress ______ it was on sale.",
-    // answer: "because",
-    // options: ["but", "because", "although", "despite"]
-    // },
-    // {
-    // q_num: 5,
-    // question: "He speaks English as if he ______ a native speaker.",
-    // answer: "were",
-    // options: ["is", "was", "were", "being"]
-    // },
+    {
+    q_num: 4,
+    question: "She bought a new dress ______ it was on sale.",
+    answer: "because",
+    options: ["but", "because", "although", "despite"]
+    },
+    {
+    q_num: 5,
+    question: "He speaks English as if he ______ a native speaker.",
+    answer: "were",
+    options: ["is", "was", "were", "being"]
+    },
     
  
     // // Analogy (3 questions)
