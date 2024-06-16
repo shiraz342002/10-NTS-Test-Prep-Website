@@ -13,26 +13,27 @@ var result_box=document.querySelector('.quiz_result')
 var result_score=document.querySelector('.display_score')
 var try_again_button=document.querySelector('.try_again_btn')
 var go_home_button=document.querySelector('.go_home_btn')
+var stop_button=document.querySelector('.stop_quiz');
 var question_counter2=1;
 var question_counter=0;  
 var user_score=0;
-var subject=document.querySelector('.subject')
+var subject=document.querySelector('.subject');
 
 
 start_button.onclick=()=>{
-    quiz_info.classList.add('active')
-    container.classList.add('active')
+    quiz_info.classList.add('active')   // add quiz guidelines
+    container.classList.add('active')   // add background blurr
 }
 exit_button.onclick=()=>{
-    quiz_info.classList.remove('active')
-    container.classList.remove('active')
+    quiz_info.classList.remove('active')  // remove the guidelines
+    container.classList.remove('active') // remove the background blurr
 
 }
 continue_button.onclick=()=>{
-    quiz_info.classList.remove('active')
-    container.classList.remove('active')
-    quiz_section.classList.add('active')
-    quiz_box.classList.add('active')
+    quiz_info.classList.remove('active')  // remove the guidelines
+    container.classList.remove('active')  // remove the background blurr
+    quiz_section.classList.add('active')  // Add the quiz background screen  
+    quiz_box.classList.add('active')      // Display the Actual Quiz  
     display_question(0)
     display_counter(1)
     display_score_on_top(user_score)
@@ -73,8 +74,8 @@ next_button.onclick=()=>{
     
 }
 try_again_button.onclick=()=>{
-    result_box.classList.remove('active')
-    next_button.classList.remove('active')
+    result_box.classList.remove('active')       // Remove the Results being displayed
+    next_button.classList.remove('active')      // Remove the ability to click the  button 
     quiz_box.classList.add('active')
     user_score=0;
     question_counter2=1;
@@ -86,10 +87,17 @@ try_again_button.onclick=()=>{
 }
 
 go_home_button.onclick=()=>{
-    result_box.classList.remove('active')
-    quiz_box.classList.remove('active')
+    result_box.classList.remove('active')       
+    quiz_box.classList.add('active')
     next_button.classList.remove('active')
     quiz_section.classList.remove('active')
+}
+
+stop_button.onclick=()=>{
+    quiz_box.classList.remove('active')
+    result_box.classList.add('active')
+    display_Result();        
+
 }
 
 function display_question(index){
