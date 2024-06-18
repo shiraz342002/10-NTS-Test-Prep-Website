@@ -93,7 +93,7 @@ body{
 }
 .home_content h1{
     color: #e5f31a;
-    font-size: 70px;
+    font-size: 50px;
     font-weight: 700;
     text-align: center;
     text-shadow: 0 0 10px rgba(0, 0, 0,.3);
@@ -102,7 +102,7 @@ body{
 }
 .home_content p{
     color: rgb(255, 255, 255);
-    font-size: 38px;
+    font-size: 28px;
     text-align: center;
     font-weight: 600;
     text-shadow: 0 0 10px rgba(0, 0, 0,.3);
@@ -110,7 +110,7 @@ body{
 .start_btn{
     font-size:31px;
     font-weight: 800;
-    padding: 23px;
+    padding: 13px;
     width: 30%;
     position: relative;
     left: 275px;
